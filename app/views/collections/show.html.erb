@@ -1,0 +1,25 @@
+<!-- Page Heading/Breadcrumbs -->
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Collection <%= @collection.name %></h1>
+  </div>
+</div>
+<!-- /.row -->
+
+<!-- Content Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <!-- Contact Form -->
+    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <div class="row">
+      <h2><%= @collection.name %><h2>
+      <% if @collection.owner_is?(logged_in_user) %>
+        <%= link_to "Edit", edit_collection_path(@collection), :class => "btn btn-primary" %>
+        <%= link_to "Delete", collection_path(@collection), :class => "btn btn-warning", :method => "delete", :confirm => "You really want to delete collection?" %>
+      <% end %>
+    </div>
+    <!-- /.row -->
+
+  </div>
+</div>
+<!-- /.row -->
