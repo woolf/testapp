@@ -2,6 +2,7 @@ class MonumentsController < ApplicationController
 
   before_filter :load_collection
   before_filter :load_monument, :only => [:show, :edit, :update, :destroy]
+  before_filter :load_categories, :only => [:edit, :update, :create, :new]
 
   def new
     @monument = Monument.new(:collection => @collection)
@@ -40,6 +41,11 @@ class MonumentsController < ApplicationController
   end
 
   private
+
+  def load_categories
+    @categories = Category.all
+  end
+
   def load_collection
     @collection = Collection.find_by_id(params[:collection_id])
     if @collection.nil?

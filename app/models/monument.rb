@@ -7,6 +7,8 @@ class Monument < ActiveRecord::Base
   validates :collection_id, :presence => true
   validates_associated :collection
 
+  has_many :photos
+
   def ownered_by? user
     return false if user.nil?
     if collection.user == user

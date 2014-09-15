@@ -4,16 +4,19 @@ Testapp::Application.routes.draw do
     collection do
       get "my"
     end
-    resources :monuments
+    resources :monuments do
+      resources :photos
+    end
   end
+
+  resource :categories
 
   resource :users, except: :destroy do
     collection do
-    get 'login'
-    post 'login'
-    get 'logout'
+      get 'login'
+      post 'login'
+      get 'logout'
     end
-
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

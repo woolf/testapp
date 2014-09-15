@@ -13,7 +13,9 @@
     <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
     <div class="row">
       <h2><%= @monument.name %><h2>
+
       <% if @monument.ownered_by?(logged_in_user) %>
+        <%= link_to "Add Photo", new_collection_monument_photo_path(@collection, @monument), :class => "btn btn-primary" %>
         <%= link_to "Edit", edit_collection_monument_path(@collection, @monument), :class => "btn btn-warning" %>
         <%= link_to "Delete", collection_monument_path(@collection, @monument), :class => "btn btn-danger", :method => "delete", :confirm => "You really want to delete collection?" %>
       <% end %>
