@@ -6,6 +6,16 @@ class MonumentsController < ApplicationController
     @monument = Monument.new(:collection => @collection)
   end
 
+  def create
+    @monument = Monument.new(params.require(:monument).permit(:name, :description, :category_id))
+    @monument.collection = @collection
+    if @monument.save
+      redirect_to collection_monument_path(@collection, @monument)
+    else
+      render :new
+    end
+  end
+
   def show
     @monument = @collection.monuments.find_by_id(params[:id])
     if @monument.nil?
