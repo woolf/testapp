@@ -6,4 +6,13 @@ class Monument < ActiveRecord::Base
   belongs_to :collection
   validates :collection_id, :presence => true
   validates_associated :collection
+
+  def ownered_by? user
+    return false if user.nil?
+    if collection.user == user
+      true
+    else
+      false
+    end
+  end
 end

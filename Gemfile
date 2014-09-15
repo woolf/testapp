@@ -9,6 +9,8 @@ gem 'sqlite3'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem "paperclip", "~> 4.2"
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'shoulda-matchers'
