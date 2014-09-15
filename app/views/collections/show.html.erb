@@ -12,11 +12,11 @@
     <!-- Contact Form -->
     <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
     <div class="row">
-      <h2><%= @collection.name %><h2>
+      <h2>Collection <%= @collection.name %></h2>
         <table class="table table-striped table-bordered">
           <tr>
             <th>
-              Name
+              Monument name
             </th>
             <th>
               Category
@@ -24,7 +24,7 @@
           </tr>
           <% @collection.monuments.each do |monument| %>
             <tr>
-              <td><%= monument.name %></td>
+              <td><%= link_to monument.name, collection_monument_path(@collection, monument) %></td>
               <td><%= monument.category.name %></td>
             </tr>
           <% end %>
