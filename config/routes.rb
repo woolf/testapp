@@ -4,6 +4,7 @@ Testapp::Application.routes.draw do
     collection do
       get "my"
     end
+    resources :monuments
   end
 
   resource :users, except: :destroy do
