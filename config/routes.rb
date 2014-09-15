@@ -9,7 +9,7 @@ Testapp::Application.routes.draw do
     end
   end
 
-  resource :categories
+  resources :categories
 
   resource :users, except: :destroy do
     collection do

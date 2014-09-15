@@ -8,7 +8,7 @@ describe Category do
 
   subject { @category }
 
-  it "category should be valid with valid fields" do
+  it "categories should be valid with valid fields" do
     should be_valid
   end
 

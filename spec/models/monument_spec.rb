@@ -20,7 +20,7 @@ describe Monument do
     should be_invalid
   end
 
-  it "monument should be invalid if category is not assigned" do
+  it "monument should be invalid if categories is not assigned" do
     @monument.category = nil
     should be_invalid
   end

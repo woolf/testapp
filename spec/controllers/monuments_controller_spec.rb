@@ -7,7 +7,7 @@ describe MonumentsController do
 
   let(:not_valid_attributes) {
     collection = Collection.create(:name => "Collection", :user => @user)
-    { "name" => nil, :description => nil, :collection => collection, :category => nil }
+    { "name" => nil, :description => nil, :collection => collection, :categories => nil }
   }
 
   let(:valid_collection) {
