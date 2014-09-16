@@ -19,6 +19,8 @@ Testapp::Application.routes.draw do
     end
   end
 
+  match 'search', :to => 'search#index', via: [:get, :post]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

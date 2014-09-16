@@ -6,6 +6,10 @@ describe CollectionsController do
     { "name" => "Collection name", :user => user }
   }
 
+  let(:valid_monument_attributes) {
+    { "name" => "Monument name", :description => "Description", :category_id  => 1 }
+  }
+
   let(:user2) {
     {:login => "test2", :password => "test2", :password_confirmation => "test2"}
   }
@@ -13,8 +17,12 @@ describe CollectionsController do
   describe "Display collection" do
     it "populates an array of collections" do
       collection = Collection.create!(valid_attributes)
+      monument = Monument.new(valid_monument_attributes)
+      monument.collection = collection
+      monument.save
       get :index
       assigns(:collections).should eq([collection])
+      assigns(:monuments).should eq([monument])
     end
 
     it "shows collection details" do

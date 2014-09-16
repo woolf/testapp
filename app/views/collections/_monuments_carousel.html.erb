@@ -1,0 +1,39 @@
+<!-- Header Carousel -->
+<header id="myCarousel" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <% first = true %>
+    <% @monuments.each do |m| %>
+      <li data-target="#myCarousel" data-slide-to="0" class="<%= first ? 'active' : '' %>"></li>
+      <% first = false %>
+    <% end %>
+    <!-- <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li> -->
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <% first = true %>
+    <% @monuments.each do |m| %>
+      <div class="item <%= first ? 'active' : '' %>">
+        <% if (photo = m.photos.first) %>
+          <div class="fill" style="background-image:url('<%= photo.image.url %>');"></div>
+        <% else %>
+          <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=No photo');"></div>
+        <% end %>
+        <div class="carousel-caption">
+          <h2><%= m.name %></h2>
+        </div>
+      </div>
+      <% first = false %>
+    <% end %>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="icon-prev"></span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="icon-next"></span>
+  </a>
+</header>

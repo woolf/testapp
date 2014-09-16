@@ -21,6 +21,7 @@ class CollectionsController < ApplicationController
   end
 
   def index
+    @monuments = Monument.all
     @collections = Collection.all
   end
 

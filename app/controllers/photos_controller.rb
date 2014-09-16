@@ -20,19 +20,32 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = @monument.photos.find_by_id(params[:id])
+    @photo = @monument.photos.find(params[:id])
   end
 
   def edit
-
+    @photo = @monument.photos.find(params[:id])
   end
 
   def update
-
+    @photo = @monument.photos.find(params[:id])
+    if @photo.update(params.require(:photo).permit(:image))
+      flash[:notice] = "Photo successfully updated"
+      redirect_to collection_monument_photo_path(@collection, @monument, @photo)
+    else
+      render :edit
+    end
   end
 
   def destroy
-
+    @photo = @monument.photos.find(params[:id])
+    if @photo.destroy
+      flash[:notice] = "Photo successfully deleted"
+      redirect_to collection_monument_path(@collection, @monument)
+    else
+      flash[:notice] = "Unable delete photo"
+      render :edit
+    end
   end
 
   private

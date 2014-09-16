@@ -1,0 +1,35 @@
+<!-- Page Heading/Breadcrumbs -->
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Search</h1>
+  </div>
+</div>
+<!-- /.row -->
+
+<!-- Content Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <!-- Contact Form -->
+    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <div class="row">
+      <% if @monuments.nil? || @monuments.size == 0  %>
+      Unable to find monuments
+      <% else %>
+        <% @monuments.each do |m| %>
+          <div class="col-md-3 img-portfolio">
+            <h4><%= link_to m.name, collection_monument_path(m.collection, m) %></h4>
+            <h5><%= m.category.name %></h5>
+            <% if (photo = m.photos.first) %>
+              <%= link_to image_tag(photo.image.url(:thumb)), collection_monument_path(m.collection, m) %>
+            <% else %>
+              <img class="img-responsive img-hover" src="http://placehold.it/263x158&test=No photo" alt="">
+            <% end %>
+          </div>
+
+        <% end %>
+      <% end %>
+    </div>
+    <!-- /.row -->
+  </div>
+</div>
+<!-- /.row -->

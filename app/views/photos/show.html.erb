@@ -19,7 +19,7 @@
         <br class="clearfix"/>
         <% if @monument.ownered_by?(logged_in_user) %>
           <%= link_to "Edit", edit_collection_monument_photo_path(@collection, @monument, @photo), :class => "btn btn-warning" %>
-          <%= link_to "Delete", collection_monument_photo_path(@collection, @monument, @photo), :class => "btn btn-danger", :method => "delete", :confirm => "You really want to delete collection?" %>
+          <%= link_to "Delete", collection_monument_photo_path(@collection, @monument, @photo), :class => "btn btn-danger", :method => "delete", :confirm => "You really want to delete photo?" %>
         <% end %>
 
     </div>

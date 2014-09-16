@@ -1,3 +1,7 @@
+<% content_for(:sub_header) do %>
+  <%= render :partial => "monuments_carousel" %>
+<% end %>
+
 <!-- Page Heading/Breadcrumbs -->
 <div class="row">
   <div class="col-lg-12">
@@ -13,11 +17,23 @@
     <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
     <div class="row">
       <% @collections.each do |c| %>
-        <h1><%= link_to c.name, collection_path(c)  %><h1>
+        <h1><%= link_to c.name, collection_path(c)  %></h1>
       <% end%>
     </div>
     <!-- /.row -->
-
   </div>
 </div>
 <!-- /.row -->
+
+<div class="well">
+  <h4>Monuments Search</h4>
+  <form action="/search" method="get">
+    <div class="input-group">
+      <input type="text" name="q" class="form-control">
+      <span class="input-group-btn">
+        <input type="submit" class="btn btn-default"></input>
+      </span>
+    </div>
+  </form>
+  <!-- /.input-group -->
+</div>

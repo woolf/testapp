@@ -1,0 +1,7 @@
+<%= form_for [@collection, @monument, @photo], :html => { :multipart => true } do |f| %>
+  <% unless @photo.new_record? %>
+    <p><%= image_tag @photo.image.url %></p>
+  <% end %>
+    <p><%= f.file_field :image %></p>
+  <%= f.submit (@photo.new_record? ? "Create" : "Update"), :class => "btn btn-primary" %>
+<% end %>
