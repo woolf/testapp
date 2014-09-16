@@ -1,6 +1,6 @@
 == README
 
-http://monuments-testapp.herokuapp.com/
+http://monuments-testapp.herokuapp.com
 
 Things you may want to cover:
 
@@ -9,8 +9,6 @@ Things you may want to cover:
 
 * How to run the test suite
   <tt>bin/rspec</tt>
-
-* Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
   <tt>git push heroku master</tt>
