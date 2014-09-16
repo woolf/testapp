@@ -22,7 +22,7 @@
         <label>Category:</label>
         <%= f.select :category_id, @categories.collect {|c| [ c.name, c.id ] }, {}, :class => "form-control" %>
 
-        <p class="help-block">Can't find category? <%= link_to "Create new", new_categories_path %></p>
+        <p class="help-block">Can't find category? <%= link_to "Create new", new_category_path %></p>
       </div>
     </div>
     <%= f.submit (@monument.new_record? ? "Create" : "Update"), :class => "btn btn-primary" %>
